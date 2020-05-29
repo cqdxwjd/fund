@@ -16,9 +16,6 @@ public class FundManager {
     public static void main(String[] args) throws IOException {
         Map<String, Integer> map = FileUtils.countLines("file/fundmanager", "file/fundmanager_out");
         List<Map.Entry<String, Integer>> list = FileUtils.sort(map);
-        for (Map.Entry<String, Integer> entry : list) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
-
+        FileUtils.writeToFile(list, "file/fundmanager_sorted");
     }
 }

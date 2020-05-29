@@ -73,4 +73,15 @@ public class FileUtils {
         });
         return list;
     }
+
+    //将list集合中的数据写入到文件中
+    public static void writeToFile(List<Map.Entry<String, Integer>> list, String pathname) throws IOException {
+        FileWriter fileWriter = new FileWriter(pathname);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        for (Map.Entry<String, Integer> entry : list) {
+            bufferedWriter.write(entry.getKey() + "\t" + entry.getValue() + "\n");
+        }
+        bufferedWriter.close();
+        fileWriter.close();
+    }
 }
